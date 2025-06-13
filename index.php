@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
 <body>
 <div>
     <h1> Password Manager </h1>
@@ -26,3 +26,7 @@
     </form>
 </body>
 </html>
+<?php
+error_reporting(E_ALL);
+ini_set("display_errors", "1");
+session_start();
