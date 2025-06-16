@@ -12,6 +12,7 @@ $result = $db -> query($query);
 if ($result -> num_rows > 0) {
     while($row = $result -> fetch_assoc()) {
         if(password_verify($password, $row['Password'])) {
+            $_SESSION['username'] = $username;
             header("Location: ../manager.php");
         }
         else {

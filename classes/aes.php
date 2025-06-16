@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 const AES_ALGORITHM = "aes-256-cbc";
 
 class AES {
@@ -15,12 +15,12 @@ class AES {
         $iv = openssl_random_pseudo_bytes($this->iv_length);
         $encrypted_text = openssl_encrypt($text, AES_ALGORITHM, $this->key, 0, $iv);
 
-        $result = array($encrypted_text, $iv);
+        $result = array($encrypted_text, $iv, $tag);
         return $result;
     }
 
-    public function decrypt(string $encrypted_text, string $iv): string {
-        $decrypted_text = openssl_decrypt($encrypted_text, AES_ALGORITHM, $this->key, 0, $iv);
+    public function decrypt(string $encrypted_text, string $original_iv): string {
+        $decrypted_text = openssl_decrypt($encrypted_text, AES_ALGORITHM, $this->key, 0, base64_decode($original_iv));
         return $decrypted_text;
     }
 }

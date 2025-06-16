@@ -8,7 +8,7 @@ include "db_config.php";
 <html lang="en">
 <body>
 <div>
-    <h1> Password Manager </h1>
+    <h1 style="text-align:center;"> Password Manager </h1>
 </div>
 <div>
     <h2> Log in </h2>
@@ -31,7 +31,7 @@ include "db_config.php";
         <input type="password" id="confirm-password" name="confirm-password" required><br><br>
         <input type="submit">
     </form>
-    <?php echo $_SESSION['message'] ?>
+    <?php isset($_SESSION['message']) ? print($_SESSION['message']) : print(""); ?>
 </div>
 </body>
 </html>

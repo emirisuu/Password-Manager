@@ -1,7 +1,7 @@
 <?php
 require_once "../db_config.php";
-include_once "classes/account.php";
-include_once "classes/aes.php";
+include_once "../classes/account.php";
+include_once "../classes/aes.php";
 
 session_start();
 
@@ -39,4 +39,3 @@ else {
     }
 }
 header("Location: ../");
-// echo "<script>setTimeout(function () {window.close();}, 10)</script>";
