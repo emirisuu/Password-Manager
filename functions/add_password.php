@@ -1,5 +1,4 @@
 <?php
-// require_once "../db_config.php";
 include_once "../classes/aes.php";
 
 session_start();

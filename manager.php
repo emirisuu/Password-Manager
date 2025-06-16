@@ -16,6 +16,11 @@ $result = $db -> query($query);
 
 ?>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</head>
 <body>
 <div>
     <h1 style="text-align:center;"> Password Manager </h1>
@@ -27,14 +32,14 @@ $result = $db -> query($query);
         <label for="manual">Manual</label><br>
         <input type="radio" onclick="document.getElementById('choice').action='password_choice/generated.php';" id="generated" name="password-type" value="Generated">
         <label for="generated">Generated</label> <br>
-        <input type="submit" value="Add new password"> <br>
-        <button type="button" onclick="location.href='index.php'">Log out</button>
+        <input type="submit" value="Add new password" class='btn btn-primary btn-sm'> <br>
+        <button type="button" onclick="location.href='index.php'" class='btn btn-danger btn-sm'>Log out</button>
     </form>
 </div>
-<div class="table-container">
-    <table class="table table-bordered table-striped table-hover align-middle">
-    <thead class="table-dark">
-        <tr>
+<div">
+    <table class="table table-striped table-bordered">
+    <thead>
+        <tr class="table-dark">
             <th>Website</th>
             <th>Password</th>
             <th>Date Created</th>
@@ -56,7 +61,7 @@ $result = $db -> query($query);
                       <td>" . $original_password . "</td>
                       <td>" . $row['Date_Created'] . "</td>
                       <td>
-                        <a href='functions/delete_password.php?id=$id'>Delete</a>
+                        <a href='functions/delete_password.php?id=$id' class='btn btn-danger btn-sm'>Delete</a>
                       </td>
                     </tr>
                 ");
@@ -66,5 +71,6 @@ $result = $db -> query($query);
     </tbody>
     </table>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
